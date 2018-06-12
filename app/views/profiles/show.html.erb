@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @profile.title %>
+</p>
+
+
+<ul>
+  <% @profile.images.each do |file| %>
+    <li>
+      <%= image_tag file.blob.representation(resize: "800X600").processed %>
+    </li>
+  <% end %>
+</ul>
+
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>

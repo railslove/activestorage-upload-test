@@ -1,24 +1,42 @@
-# README
+# Active Storage Upload Test
+Simply Active Storage is replacement for [Paperclip](https://github.com/thoughtbot/paperclip)built-in in rails 5.2.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Cloud storage services are also supported like Amazon S3, Google Cloud Storage, or Microsoft Azure Storage.
 
-Things you may want to cover:
+To attach files to one model, do the following: ()
 
-* Ruby version
+- `has_many_attached :images` in the model
 
-* System dependencies
+- `images: []` to required
 
-* Configuration
+- `$ rails active_storage:install`
 
-* Database creation
+- in the view:
+```
+<% @model.images.each do |file| %>
+    <%= image_tag image.blob.representation(resize: "WxH").processed %>
+<% end %>
+```
 
-* Database initialization
+### Configure a CloudStorage
 
-* How to run the test suite
+### S3
 
-* Services (job queues, cache servers, search engines, etc.)
+- `config.active_storage.service = :amazon`
 
-* Deployment instructions
+- `config/storage.yml`
 
-* ...
+  ```
+  amazon:
+    service: S3
+    access_key_id: ""
+    secret_access_key: ""
+    region: ""
+    bucket: ""
+  ```
+
+
+- `gem 'aws-sdk-s3'`
+
+
+Check [Activestorage on Edgeguides](http://edgeguides.rubyonrails.org/active_storage_overview.html#amazon-s3-service)

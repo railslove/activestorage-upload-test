@@ -1,5 +1,5 @@
 # Active Storage Upload Test
-Simply Active Storage is replacement for [Paperclip](https://github.com/thoughtbot/paperclip)built-in in rails 5.2.
+Simply Active Storage is replacement for [Paperclip](https://github.com/thoughtbot/paperclip) built in rails 5.2.
 
 Cloud storage services are also supported like Amazon S3, Google Cloud Storage, or Microsoft Azure Storage.
 
@@ -12,11 +12,11 @@ To attach files to one model, do the following: ()
 - `$ rails active_storage:install`
 
 - in the view:
-```
-<% @model.images.each do |file| %>
-    <%= image_tag image.blob.representation(resize: "WxH").processed %>
-<% end %>
-```
+  ```
+  <% @model.images.each do |file| %>
+      <%= image_tag image.blob.representation(resize: "WxH").processed %>
+  <% end %>
+  ```
 
 ### Configure a CloudStorage
 
